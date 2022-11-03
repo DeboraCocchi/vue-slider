@@ -12,21 +12,27 @@
   <main>
   <div id="app">
     <div class="paint-container">
+      
       <div class="big-paint">
         <div class="paint-data">
           <h5>{{paintings[currentIndex].author}}, <span>{{paintings[currentIndex].year}}</span></h5>
           <h4>{{paintings[currentIndex].title}}</h4>
         </div>
+        <div class="paint-more">{{paintings[currentIndex].more}}</div>
+        <div class="buttons">
+          <button @click="autoplay()">Scorrimento Automatico</button>
+          <button v-show="isAutoplay" @click="reversePlay()">Inverti Scorrimento Automatico</button>
+        </div>
         <img 
-        :src="path+paintings[currentIndex].image" :alt="paintings[currentIndex].image" :class="">
+        :src="path+paintings[currentIndex].image" :alt="paintings[currentIndex].image">
       </div>
 
       <div class="thumb-paint" >
-        <div class="buttons">
+        <div class="circle-buttons">
           <div class="circle" @click="prevNext(true)">>></div>
           <div class="circle" @click="prevNext(false)"><<</div>
         </div>
-        <div class="thumb" v-for:="(painting , indice) in paintings" :class="{'active-thumb': (currentIndex===indice)}">
+        <div class="thumb" v-for:="(painting , indice) in paintings" :class="{'active-thumb': (currentIndex===indice)}" @click="thisIsActive(indice)">
           <img 
           :src="path+paintings[indice].image" :alt="paintings[indice].image">
           <div :class="{'d-none': (indice === currentIndex)}" class="thumb-cover"></div>
