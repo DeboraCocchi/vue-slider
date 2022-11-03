@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paint-container{
+  width:800px;
+  height:500px;
+  background-color: blue;
+  margin:50px auto;
+}
+
+.big-paint{
+  height:calc(100% - 80px);
+  background-color:steelblue ;
+}
+
+.thumb-paint{
+  height:80px;
+  background-color: pink;
+  display: flex;
+}
+.thumb{
+  width:20%;
+  height:100%;
+}
+
+img{
+  height:100%;
+  width:100%;
+  object-fit: cover;
+}
