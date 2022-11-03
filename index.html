@@ -12,22 +12,22 @@
   <main>
   <div id="app">
     <div class="paint-container">
+      <div class="buttons">
+        <button @click="autoplay()">{{isClicked?nonClicked : clicked}}</button>
+        <button v-show="isClicked" @click="reversePlay()">Inverti Scorrimento Automatico</button>
+      </div>
       
-      <div class="big-paint">
+      <div class="big-paint" @mouseover="stop()" @mouseleave="autoplay()">
         <div class="paint-data">
           <h5>{{paintings[currentIndex].author}}, <span>{{paintings[currentIndex].year}}</span></h5>
           <h4>{{paintings[currentIndex].title}}</h4>
         </div>
         <div class="paint-more">{{paintings[currentIndex].more}}</div>
-        <div class="buttons">
-          <button @click="autoplay()">Scorrimento Automatico</button>
-          <button v-show="isAutoplay" @click="reversePlay()">Inverti Scorrimento Automatico</button>
-        </div>
         <img 
         :src="path+paintings[currentIndex].image" :alt="paintings[currentIndex].image">
       </div>
 
-      <div class="thumb-paint" >
+      <div class="thumb-paint" @mouseover="stop()" @mouseleave="autoplay()">
         <div class="circle-buttons">
           <div class="circle" @click="prevNext(true)">>></div>
           <div class="circle" @click="prevNext(false)"><<</div>

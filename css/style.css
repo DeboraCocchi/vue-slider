@@ -27,6 +27,7 @@ main{
   height:80vh;
   background-color: blue;
   margin:50px auto;
+  position: relative;
 }
 
 .big-paint{
@@ -106,6 +107,9 @@ img{
   content:'';
   background-color: rgba(0,0,0,0.8);
 }
+.thumb:hover{
+  cursor:pointer;
+}
 
 .d-none{
   display:none;
@@ -129,17 +133,18 @@ img{
   left: -285px;
   display: flex;
   flex-direction: column;
+  width:280px;
 }
 
 button{
   padding:10px;
   border-radius:20px;
   font-size:105%;
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 button:hover{
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.7);
   color:white;
 }
 

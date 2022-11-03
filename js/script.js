@@ -44,9 +44,11 @@ createApp({
           image:"magritte.jpeg"
         }],
       currentIndex: 0,
-      isAutoplay:false,
+      isClicked:false,
       isNext : true,
-      autoPlayVar: ''
+      autoPlayVar: '',
+      nonClicked: 'Interrompi autoplay',
+      clicked: 'Start autoplay'
       
     }
   },
@@ -60,21 +62,24 @@ createApp({
       this.currentIndex = index;
     },
     autoplay(){
-      autoPlayVar  = setInterval(() =>
-      this.prevNext(true), 3000);
-      console.log('autoplay!');
-      this.isAutoplay=true;
+      if(this.isClicked === false){
+        this.autoPlayVar  = setInterval(() =>
+        this.prevNext(true), 3000);
+        this.isClicked=true;
+      }else{
+        clearInterval(this.autoPlayVar);
+        this.isClicked = false;
+      }
     },
     reversePlay(){
       this.isNext = !this.isNext;
-      clearInterval(autoPlayVar);
-      autoPlayVar = setInterval(() =>
+      clearInterval(this.autoPlayVar);
+      this.autoPlayVar = setInterval(() =>
       this.prevNext(this.isNext), 3000);
-      console.log('autoplay! IsNext ---> '+this.isNext);
-
+    },
+    stop(){
+      clearInterval(this.autoPlayVar);
+      this.isClicked = false;
     }
-  },
-  // mounted(){
-  //   this.autoplay()
-  // }
+  }
 }).mount('#app')
