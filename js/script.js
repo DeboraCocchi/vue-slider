@@ -29,7 +29,7 @@ createApp({
         },
         
         {
-          author: "Salvador Dali",
+          author: "Salvador Dalì",
           year: 1946,
           title: "Tentazioni di sant'Antonio",
           more: "Il dipinto mostra Sant'Antonio nel deserto, inginocchiato mentre brandisce una croce per proteggersi dalle tentazioni che lo assalgono, quasi in un gesto di esorcismo. Di fronte a questa processione di sfide, rappresentate dagli animali, Sant'Antonio sembra debole; è nudo e spogliato, relegato nell'angolo sinistro del dipinto, quasi inerme mentre la sua fede viene messa a dura prova.",
@@ -43,7 +43,15 @@ createApp({
           more: "La peculiare prospettiva e la vista delle case -di cui è visibile la sola sommità - ci danno un suggerimento sulla posizione dello spettatore: è possibile che anche chi osserva il dipinto sia sospeso a mezz'aria come i curiosi personaggi, identificandosi addirittura come uno di essi. Se la geometria degli elementi suscita entusiasmo e piacevolezza, la moltitudine di figure indistinguibili crea una forte inquietudine: si tratta di una probabile critica all'omologazione e alla meccanicità della routine che mette in luce il rapporto uomo-lavoro, dove le peculiarità dell'individuo sono destinate a venire silenziate in nome del progresso economico.",
           image:"magritte.jpeg"
         }],
-      currentIndex: 0
+      currentIndex: 0,
+      isActive:false
+    }
+  },
+  methods:{
+    prevNext(isNext){
+      (isNext) ? this.currentIndex++ : this.currentIndex--;
+      if(this.currentIndex===this.paintings.length) this.currentIndex = 0;
+      if(this.currentIndex<0) this.currentIndex = this.paintings.length-1;
     }
   }
 }).mount('#app')

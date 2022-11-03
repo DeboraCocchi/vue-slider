@@ -13,13 +13,23 @@
   <div id="app">
     <div class="paint-container">
       <div class="big-paint">
+        <div class="paint-data">
+          <h5>{{paintings[currentIndex].author}}, <span>{{paintings[currentIndex].year}}</span></h5>
+          <h4>{{paintings[currentIndex].title}}</h4>
+        </div>
         <img 
         :src="path+paintings[currentIndex].image" :alt="paintings[currentIndex].image" :class="">
       </div>
+
       <div class="thumb-paint" >
-        <div class="thumb" v-for:="(painting , indice) in paintings">
+        <div class="buttons">
+          <div class="circle" @click="prevNext(true)">>></div>
+          <div class="circle" @click="prevNext(false)"><<</div>
+        </div>
+        <div class="thumb" v-for:="(painting , indice) in paintings" :class="{'active-thumb': (currentIndex===indice)}">
           <img 
           :src="path+paintings[indice].image" :alt="paintings[indice].image">
+          <div :class="{'d-none': (indice === currentIndex)}" class="thumb-cover"></div>
         </div>
        
       </div>
