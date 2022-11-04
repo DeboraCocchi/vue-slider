@@ -116,6 +116,7 @@ img{
   border-bottom-right-radius: 20px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.6);
   position: absolute;
+  transform: translate();
   width:220px;
   overflow-y: auto;
   right:-220px;
@@ -148,4 +149,16 @@ button:hover{
 
 button:last-of-type{
   margin-top:10px;
+}
+
+footer{
+  position: fixed;
+  bottom:0;
+  right:0;
+  text-align: right;
+}
+
+footer img{
+  height:40px;
+  margin-right:5px;
 }

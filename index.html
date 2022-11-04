@@ -17,7 +17,7 @@
         <button v-show="isClicked" @click="reversePlay()">Inverti Scorrimento Automatico</button>
       </div>
       
-      <div class="big-paint" @mouseover="stop()" @mouseleave="autoplay()">
+      <div class="big-paint" @mousenter="stop()" @mouseleave="autoplay()">
         <div class="paint-data">
           <h5>{{paintings[currentIndex].author}}, <span>{{paintings[currentIndex].year}}</span></h5>
           <h4>{{paintings[currentIndex].title}}</h4>
@@ -27,7 +27,7 @@
         :src="path+paintings[currentIndex].image" :alt="paintings[currentIndex].image">
       </div>
 
-      <div class="thumb-paint" @mouseover="stop()" @mouseleave="autoplay()">
+      <div class="thumb-paint" @mousenter="stop()" @mouseleave="autoplay()">
         <div class="circle-buttons">
           <div class="circle" @click="prevNext(true)">>></div>
           <div class="circle" @click="prevNext(false)"><<</div>
@@ -44,6 +44,7 @@
     </div>
 
 
+    <footer><img src="img/cdbee.png" alt=""></footer>
   </div>
   
   
